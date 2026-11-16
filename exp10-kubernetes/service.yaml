@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-service
+spec:
+  type: NodePort               # expose the Service on a port of the node (your PC)
+  selector:
+    app: nginx                 # send traffic to Pods with label app=nginx
+  ports:
+    - protocol: TCP
+      port: 80                 # Service port inside the cluster
+      targetPort: 80           # container port
+      nodePort: 30080          # open http://localhost:30080 (range 30000-32767)
