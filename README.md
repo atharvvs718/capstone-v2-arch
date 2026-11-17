@@ -1,50 +1,67 @@
-# DevOps Lab Practical — CS447 (RIT)
+# DevOps Lab Practical — Copy-Paste Guides
 
-All 10 experiments with step-by-step guides and ready-to-run code.
-Open the folder of the experiment you get and follow its `README.md` from top to bottom.
+One page per experiment. Every page has the steps, every file's code, and every command.
+**Just open your experiment's page below and follow it top to bottom.**
 
-| # | Experiment | Folder | Tools needed |
-|---|---|---|---|
-| 1 | Introduction to DevOps: culture, principles, benefits | [exp01-devops-intro](exp01-devops-intro) | None (theory) |
-| 2 | Getting started with Git and version control | [exp02-git-basics](exp02-git-basics) | Git, GitHub, (gcc optional) |
-| 3 | Collaborating using GitHub and pull requests | [exp03-github-pull-requests](exp03-github-pull-requests) | Git, GitHub |
-| 4 | GitFlow workflow in a team scenario | [exp04-gitflow](exp04-gitflow) | Git, GitHub |
-| 5 | Automating builds and jobs using Jenkins | [exp05-jenkins-build](exp05-jenkins-build) | Java, Jenkins, Git |
-| 6 | CI/CD for web development using Jenkins | [exp06-jenkins-web-cicd](exp06-jenkins-web-cicd) | Java, Jenkins, Git, (Python) |
-| 7 | Containerization and deployment using Docker | [exp07-docker](exp07-docker) | Docker |
-| 8 | CI/CD pipeline using Docker and Jenkins | [exp08-docker-jenkins-pipeline](exp08-docker-jenkins-pipeline) | Docker, Jenkins, Git |
-| 9 | Maven build lifecycle for Java | [exp09-maven](exp09-maven) | Java 17+, Maven |
-| 10 | Container orchestration using Kubernetes | [exp10-kubernetes](exp10-kubernetes) | Docker Desktop + Kubernetes, kubectl |
+| # | Experiment | Guide |
+|---|---|---|
+| 1 | Introduction to DevOps (theory) | [exp01.md](exp01.md) |
+| 2 | Getting started with Git and version control | [exp02.md](exp02.md) |
+| 3 | Collaborating using GitHub and Pull Requests | [exp03.md](exp03.md) |
+| 4 | GitFlow workflow in a team scenario | [exp04.md](exp04.md) |
+| 5 | Automating builds and jobs using Jenkins | [exp05.md](exp05.md) |
+| 6 | CI/CD for web development using Jenkins | [exp06.md](exp06.md) |
+| 7 | Containerization and deployment using Docker | [exp07.md](exp07.md) |
+| 8 | CI/CD pipeline using Docker and Jenkins | [exp08.md](exp08.md) |
+| 9 | Maven build lifecycle for Java | [exp09.md](exp09.md) |
+| 10 | Container orchestration using Kubernetes | [exp10.md](exp10.md) |
 
-## First 5 minutes in the lab (any experiment)
+---
 
-1. Check what is already installed — open **Command Prompt** and run [`00-setup/check-tools.bat`](00-setup/check-tools.bat), or type:
-   ```
-   git --version
-   java -version
-   mvn -version
-   docker --version
-   kubectl version --client
-   ```
-2. Install only what is missing for **your** experiment → [00-setup/SETUP.md](00-setup/SETUP.md).
-3. Clone this repo:
-   ```bash
-   cd Desktop
-   git clone https://github.com/atharvvs718/capstone-v2-arch.git
-   cd capstone-v2-arch
-   ```
-4. Open your experiment folder's `README.md` and follow it.
+## How to use these guides
 
-> Many experiments ask you to **create a new GitHub repo** and push code to it.
-> Copy the experiment's code folder out of this repo first (instructions in each guide),
-> so you don't push it inside this repo by mistake.
+- **Terminal:** use **Command Prompt (cmd)** for everything → press `Win + R`, type `cmd`, Enter.
+- **Copy a command:** click the copy icon on the code block → in cmd, **right-click** to paste → Enter.
+- **Create a file:** the guide says e.g. `notepad index.html` → Notepad asks *"Do you want to create a new file?"* → **Yes** → paste the code with **Ctrl+V** → **Ctrl+S** → close Notepad.
+- **Files without an extension** (`Dockerfile`): the guide first runs `type nul > Dockerfile`, then `notepad Dockerfile`. Otherwise Notepad saves it as `Dockerfile.txt` and Docker can't find it.
+- **See your files in Explorer:** run `explorer .` in cmd.
+- **Paste replaces:** when the guide says *"replace everything"*, press **Ctrl+A** in Notepad first, then **Ctrl+V**.
+
+---
+
+## Step 0 — Check what is installed (do this first, any experiment)
+
+```
+git --version
+java -version
+mvn -version
+docker --version
+kubectl version --client
+```
+"is not recognized" = not installed. What each experiment needs:
+
+| Exp | Needs |
+|---|---|
+| 1 | nothing |
+| 2, 3, 4 | Git |
+| 5, 6 | Git, **Java 21**, Jenkins |
+| 7 | Docker Desktop |
+| 8 | Git, **Java 21**, Jenkins, Docker Desktop |
+| 9 | Java 21 (17 also works), Maven |
+| 10 | Docker Desktop with Kubernetes enabled |
+
+---
+
+## Installing tools
+Every guide starts with **Step 0 — Install everything (on a PC that has nothing)**: Git, Java, Jenkins, Docker,
+Maven — whatever that experiment needs, with exact download links and clicks. Each guide also starts with the
+**Expected outcome**, so you know what the finished result should look like.
 
 ## Before leaving the lab
 
-- `cmdkey /delete:git:https://github.com` (in cmd) — removes your saved GitHub login
-- `git config --global --unset user.name` and `git config --global --unset user.email`
-- Log out of GitHub (and Docker Hub) in the browser
-- Stop things you started: `docker stop` containers, close Jenkins window (Ctrl+C)
-
-Quick viva prep for all experiments: [VIVA.md](VIVA.md)
-"# capstone-v2-arch" 
+```
+cmdkey /delete:git:https://github.com
+git config --global --unset user.name
+git config --global --unset user.email
+```
+Then log out of GitHub (and Docker Hub) in the browser.
